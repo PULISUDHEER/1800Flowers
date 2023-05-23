@@ -38,7 +38,7 @@ public class FlowersTaskTests {
 	void printCountTest() throws Exception {
 
 		Map<String, Integer> expected = new HashMap<>();
-		expected.put("No.of Uniques UserId's", 1);
+		expected.put("No.of Unique UserId's", 1);
 		Flowers[] data = new Flowers[1];
 		data[0] = new Flowers(1, 1, "1800flowers", "1800flowers");
 		List<Flowers> list1 = Arrays.asList(data);

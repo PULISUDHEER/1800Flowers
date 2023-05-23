@@ -43,7 +43,7 @@ public class FlowersTask {
 		try {
 			Map<Integer, List<Flowers>> map;
 			map = list.stream().collect(Collectors.groupingBy(Flowers::getUserId));
-			map1.put("No.of Uniques UserId's", map.size());
+			map1.put("No.of Unique UserId's", map.size());
 			log.info("Number of uniqueUserId's:" + map.size() + " fetched successfully");
 		}
 		catch(Exception e) {
