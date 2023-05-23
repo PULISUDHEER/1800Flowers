@@ -1,6 +1,5 @@
 package com.application._flowers.entity;
 
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
@@ -10,8 +9,9 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class FlowersTests {
-	
+
 	ObjectMapper obj = new ObjectMapper();
+
 	@Test
 	void flowers() throws JsonProcessingException {
 		Flowers flowers = new Flowers();

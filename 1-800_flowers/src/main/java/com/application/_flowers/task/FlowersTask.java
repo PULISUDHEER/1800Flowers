@@ -20,22 +20,22 @@ public class FlowersTask {
 	LocalDateTime presentDateTime = LocalDateTime.now();
 	DateTimeFormatter dt = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
 
-	public List<Flowers> update(List<Flowers> list) {
+	public List<Flowers> update(List<Flowers> list, Flowers flowers) {
 
-		if(list.stream().anyMatch(i->i.getId()==4)) {
+		if (list.stream().anyMatch(i -> i.getId() == flowers.getId())) {
 			list.stream().map(i -> {
-				if (i.getId() == 4) {
+				if (i.getId() == flowers.getId()) {
 					i.setBody("1800Flowers");
 					i.setTitle("1800Flowers");
 					log.info("Title and Body updated successfully for UserId:4 " + dt.format(presentDateTime));
 				}
 				return i;
 			}).collect(Collectors.toList());
-		return list;
-		} 
+			return list;
+		}
 		log.error("UserId Not found " + dt.format(presentDateTime));
 		throw new RuntimeException("UserId Not found");
-			
+
 	}
 
 	public Map<String, Integer> countUniqueUserIds(List<Flowers> list) {
@@ -45,12 +45,11 @@ public class FlowersTask {
 			map = list.stream().collect(Collectors.groupingBy(Flowers::getUserId));
 			map1.put("No.of Unique UserId's", map.size());
 			log.info("Number of uniqueUserId's:" + map.size() + " fetched successfully");
-		}
-		catch(Exception e) {
+		} catch (Exception e) {
 			log.error(e.getMessage());
 			new RuntimeException(e.getMessage());
 		}
-		
+
 		return map1;
 
 	}

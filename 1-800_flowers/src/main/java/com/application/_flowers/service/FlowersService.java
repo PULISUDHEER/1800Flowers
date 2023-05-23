@@ -15,24 +15,24 @@ import com.application._flowers.task.FlowersTask;
 
 @Service
 public class FlowersService {
-	
+
 	@Autowired
 	FlowersTask flowersTask;
-	
+
 	List<Flowers> list;
-	
+
 	RestTemplate restTemplate = new RestTemplate();
-	
+
 	public Map<String, Integer> countUniqueUserIds() {
-		 list= Optional.ofNullable(list)
-				.orElse(new ArrayList<>(Arrays.asList(restTemplate.getForObject("http://jsonplaceholder.typicode.com/posts", Flowers[].class))));
-		 return flowersTask.countUniqueUserIds(list);
-		
+		list = Optional.ofNullable(list).orElse(new ArrayList<>(Arrays
+				.asList(restTemplate.getForObject("http://jsonplaceholder.typicode.com/posts", Flowers[].class))));
+		return flowersTask.countUniqueUserIds(list);
+
 	}
-	
-	public List<Flowers> update() {
-		 list= Optional.ofNullable(list)
-				.orElse(new ArrayList<>(Arrays.asList(restTemplate.getForObject("http://jsonplaceholder.typicode.com/posts", Flowers[].class))));
-		 return flowersTask.update(list);
+
+	public List<Flowers> update(Flowers flowers) {
+		list = Optional.ofNullable(list).orElse(new ArrayList<>(Arrays
+				.asList(restTemplate.getForObject("http://jsonplaceholder.typicode.com/posts", Flowers[].class))));
+		return flowersTask.update(list, flowers);
 	}
 }

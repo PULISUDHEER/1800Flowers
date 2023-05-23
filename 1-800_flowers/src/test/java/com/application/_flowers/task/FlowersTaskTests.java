@@ -24,13 +24,16 @@ public class FlowersTaskTests {
 
 	@Test
 	void updateTest() throws Exception {
-		String resBody = "[{\"userId\":1,\"id\":4,\"title\":\"1800Flowers\",\"body\":\"1800Flowers\"}]";
+		String reqBody = "{\"id\":1,\"title\":\"1800flowers\", \"body\":\"1800flowers\"}";
+		Flowers details = obj.readValue(reqBody, Flowers.class);
+
+		String resBody = "[{\"userId\":1,\"id\":1,\"title\":\"1800Flowers\",\"body\":\"1800Flowers\"}]";
 		List<String> expected = Arrays.asList(resBody);
 
 		Flowers[] data = new Flowers[1];
-		data[0] = new Flowers(1, 4, "title", "body");
+		data[0] = new Flowers(1, 1, "title", "body");
 		List<Flowers> list1 = Arrays.asList(data);
-		List<String> actual = Arrays.asList(obj.writeValueAsString(flowersTask.update(list1)));
+		List<String> actual = Arrays.asList(obj.writeValueAsString(flowersTask.update(list1, details)));
 		assertEquals(expected, actual);
 	}
 

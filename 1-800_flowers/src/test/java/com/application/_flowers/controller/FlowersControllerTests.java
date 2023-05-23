@@ -18,19 +18,21 @@ import com.application._flowers.service.FlowersService;
 public class FlowersControllerTests {
 	@Autowired
 	MockMvc mvc;
-	
+
 	@MockBean
 	FlowersService service;
-	
+
 	@Test
 	void countUniqueUserId() throws Exception {
 
-		mvc.perform(get("/flowers").contentType(MediaType.APPLICATION_JSON))
-				.andExpect(status().isOk()).andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON));
+		mvc.perform(get("/flowers").contentType(MediaType.APPLICATION_JSON)).andExpect(status().isOk())
+				.andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON));
 	}
+
 	@Test
 	void updateTest() throws Exception {
-		mvc.perform(put("/flowers").contentType(MediaType.APPLICATION_JSON))
+		String reqBody = "{\"userId\":1,\"title\":\"1800flowers\", \"body\":\"1800flowers\"}";
+		mvc.perform(put("/flowers").content(reqBody).contentType(MediaType.APPLICATION_JSON))
 				.andExpect(status().isCreated())
 				.andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON));
 	}
