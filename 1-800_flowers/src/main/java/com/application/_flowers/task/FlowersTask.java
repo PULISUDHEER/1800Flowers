@@ -33,7 +33,7 @@ public class FlowersTask {
 			}).collect(Collectors.toList());
 			return list;
 		}
-		log.error("UserId Not found " + dt.format(presentDateTime));
+		log.error("UserId Not found: "+flowers.getId()+ dt.format(presentDateTime));
 		throw new RuntimeException("UserId Not found");
 
 	}
@@ -53,4 +53,5 @@ public class FlowersTask {
 		return map1;
 
 	}
+	
 }

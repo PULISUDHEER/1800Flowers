@@ -31,5 +31,4 @@ public class FlowersController {
 		return new ResponseEntity<Map<String, Integer>>(flowersService.countUniqueUserIds(), HttpStatus.OK);
 
 	}
-
 }
