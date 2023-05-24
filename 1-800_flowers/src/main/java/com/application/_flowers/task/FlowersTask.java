@@ -27,14 +27,14 @@ public class FlowersTask {
 				if (i.getId() == flowers.getId()) {
 					i.setBody("1800Flowers");
 					i.setTitle("1800Flowers");
-					log.info("Title and Body updated successfully for UserId:4 " + dt.format(presentDateTime));
+					log.info("Title and Body updated successfully for UserId: "+flowers.getId()+"\t"+ dt.format(presentDateTime));
 				}
 				return i;
 			}).collect(Collectors.toList());
 			return list;
 		}
-		log.error("UserId Not found: "+flowers.getId()+ dt.format(presentDateTime));
-		throw new RuntimeException("UserId Not found");
+		log.error("UserId:"+ flowers.getId() +"\t"+"Not found!"+"\t"+ dt.format(presentDateTime));
+		throw new RuntimeException("UserId:"+ flowers.getId() +"\t"+"Not found!");
 
 	}
 
@@ -53,5 +53,5 @@ public class FlowersTask {
 		return map1;
 
 	}
-	
+
 }

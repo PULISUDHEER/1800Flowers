@@ -41,7 +41,7 @@ public class FlowersExceptionTests {
 		Flowers[] data = new Flowers[1];
 		data[0] = new Flowers(1, 1, "title", "body");
 		List<Flowers> list1 = Arrays.asList(data);
-		assertThrows(RuntimeException.class, () -> task.update(list1, details), "UserId Not found");
+		assertThrows(RuntimeException.class, () -> task.update(list1, details), "UserId:"+ details.getId() +"\t"+"Not found!");
 
 		ResponseEntity<?> response = new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
 		assertEquals(response, exception.printException(e));
